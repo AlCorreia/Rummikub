@@ -19,4 +19,3 @@ param count_colour integer;
 param i integer;
 param j integer;
 param k integer;
-param carte_reserve integer;

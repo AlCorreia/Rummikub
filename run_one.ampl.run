@@ -3,11 +3,16 @@ reset;
 option solver cplexamp;
 
 param iter;
+param i_alea;
+param j_alea;
+param fin;
 
 model declaration_rummikub.ampl.mod;
 data instance_rummikub.ampl.dat;
 model build_groups.ampl.dat;
 model model.mod;
+
+param carte_reserve := NB_NUM*NB_COUL - sum {m in 1..NB_NUM, n in 1..NB_COUL} (carte_main[m,n] + carte_table[m,n]);
 
 let iter := 0;
 repeat until carte_reserve = 0 {
@@ -24,5 +29,7 @@ repeat until carte_reserve = 0 {
 	
 	commands alea.com.mod;
 	let carte_main[i_alea, j_alea] := 1;
+	let carte_reserve := carte_reserve - 1;
+	printf"carte_reserve: %d \n", carte_reserve;
 	let iter := iter + 1;
 }
