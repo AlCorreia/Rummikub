@@ -1,0 +1,11 @@
+reset;
+reset;
+
+option solver cplexamp;
+
+model declaration_rummikub.ampl.mod;
+data instance_rummikub.ampl.dat;
+model build_groups.ampl.dat;
+model model.mod;
+
+solve;
