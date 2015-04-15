@@ -28,3 +28,5 @@ param count_colour := 0;
 param i := 1;
 param j := 1;
 param k := 1;
+param carte_reserve = 
+NB_NUM*NB_COUL - sum {m in 1..NB_NUM, n in 1..NB_COUL} carte_main[m,n] + carte_table[m,n];

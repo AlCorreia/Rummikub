@@ -1,11 +1,28 @@
 reset;
-reset;
 
 option solver cplexamp;
+
+param iter;
 
 model declaration_rummikub.ampl.mod;
 data instance_rummikub.ampl.dat;
 model build_groups.ampl.dat;
 model model.mod;
 
-solve;
+let iter := 0;
+repeat until carte_reserve = 0 {
+	printf "\n iteration %d \n", iter;
+	
+	solve;
+	
+	for{m in 1..NB_NUM} {
+		for{n in 1..NB_COUL} {
+			printf"%d ", carte_table[m,n];
+		}
+		printf"\n";
+	}
+	
+	commands alea.com.mod;
+	let carte_main[i_alea, j_alea] := 1;
+	let iter := iter + 1;
+}

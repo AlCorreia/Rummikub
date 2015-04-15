@@ -2,7 +2,8 @@
 
 var y{1..NB_NUM*NB_COUL} binary; # On a que un jeu de carte
 var x{1..NB_GROUPES} binary; # Groupes qui apparaissent sur la table
-maximize obj:sum {m in 1..NB_NUM*NB_COUL} y[m];
+
+maximize obj:sum {m in 1..NB_NUM, n in 1..NB_COUL} y[(n-1)*NB_NUM + m]*m;
 
 subject to 
 c1 {m in 1..NB_NUM, n in 1..NB_COUL} : 
