@@ -22,6 +22,7 @@ repeat until carte_reserve = 0 {
 	printf "\nIteration %d \n", iter;
 	
 	solve;
+	
 	printf"\nCarte_table: \n";
 	for{m in 1..NB_NUM} {
 		for{n in 1..NB_COUL} {
