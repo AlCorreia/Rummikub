@@ -6,5 +6,5 @@ repeat {
 		let fin := 1;
 	} until fin = 1;
 	
-	printf "carte piochee % % \n", i_alea, j_alea;
+	printf "/nCarte piochee %d %d \n", i_alea, j_alea;
 	

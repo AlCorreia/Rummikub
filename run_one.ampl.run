@@ -1,5 +1,5 @@
 reset;
-printf"carte_reserve: \n";
+
 option solver cplexamp;
 
 param iter;
@@ -14,8 +14,8 @@ model build_groups.ampl.dat;
 model model.mod;
 
 let carte_reserve := NB_NUM*NB_COUL - sum {m in 1..NB_NUM, n in 1..NB_COUL} (carte_main[m,n] + carte_table[m,n]);
-#let carte_reserve := 14;
-printf"carte_reserve: %d \n", carte_reserve;
+
+printf"\nCarte_reserve: %d \n", carte_reserve;
 
 let iter := 0;
 repeat until carte_reserve = 0 {
