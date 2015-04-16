@@ -27,6 +27,14 @@ repeat until i = NB_JOUEURS + 1 {
 	};
 	let i := i + 1;
 };
+printf "\nMONT \n";
+
+for{m in 1..NB_NUM} {
+	for{n in 1..NB_COUL} {
+		printf"%d ", mont[m,n];
+	}
+	printf"\n";
+}
 
 let carte_reserve := NB_NUM*NB_COUL - sum {m in 1..NB_NUM, n in 1..NB_COUL} (carte_main[m,n] + carte_table[m,n]);
 
@@ -82,6 +90,7 @@ repeat until carte_reserve = 0 {
 		let main[j_tour, i_alea, j_alea] := 1;
 		let carte_main[i_alea, j_alea] := 1;
 		let carte_reserve := carte_reserve - 1;
+		let mont[i_alea, j_alea] := mont[i_alea, j_alea] - 1; 
 		printf"\nCarte_reserve: %d \n", carte_reserve;
 	}
 	let iter := iter + 1;
