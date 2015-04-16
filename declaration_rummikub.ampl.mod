@@ -16,6 +16,9 @@ param nb_tiles integer; #nombre de pieces en chaque groupe
 param num integer;
 param count_num integer;
 param count_colour integer;
+param c integer;
 param i integer;
 param j integer;
 param k integer;
+param l integer; 
+param l2 integer; 

@@ -1,7 +1,7 @@
 param NB_NUM := 5;
 param NB_COUL := 4;
 param NB_MUL := 1;
-param NB_GROUPES := 49;
+param NB_GROUPES := 1173;
 param carte_table_joker := 0;
 param carte_main_joker := 0;
 
@@ -25,6 +25,9 @@ param nb_tiles := 3;
 param num := 1;
 param count_num := 1;
 param count_colour := 0;
+param c := 1;
 param i := 1;
 param j := 1;
 param k := 1;
+param l := 1;
+param l2 := 1;
