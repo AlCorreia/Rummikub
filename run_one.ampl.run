@@ -1,18 +1,21 @@
 reset;
-
+printf"carte_reserve: \n";
 option solver cplexamp;
 
 param iter;
 param i_alea;
 param j_alea;
 param fin;
+param carte_reserve integer;
 
 model declaration_rummikub.ampl.mod;
 data instance_rummikub.ampl.dat;
 model build_groups.ampl.dat;
 model model.mod;
 
-param carte_reserve := NB_NUM*NB_COUL - sum {m in 1..NB_NUM, n in 1..NB_COUL} (carte_main[m,n] + carte_table[m,n]);
+let carte_reserve := NB_NUM*NB_COUL - sum {m in 1..NB_NUM, n in 1..NB_COUL} (carte_main[m,n] + carte_table[m,n]);
+#let carte_reserve := 14;
+printf"carte_reserve: %d \n", carte_reserve;
 
 let iter := 0;
 repeat until carte_reserve = 0 {
@@ -22,6 +25,8 @@ repeat until carte_reserve = 0 {
 	
 	for{m in 1..NB_NUM} {
 		for{n in 1..NB_COUL} {
+			let carte_table[m,n] := carte_table[m,n] + y[m,n];
+			let carte_main[m,n] := carte_main[m,n] - y[m,n];
 			printf"%d ", carte_table[m,n];
 		}
 		printf"\n";

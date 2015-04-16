@@ -1,5 +1,5 @@
 # Initialisation du tableau s
-param s{1..NB_GROUPES, 1..NB_NUM*NB_COUL} default 0 ; # Tableau avec les cartes de chaque groupe
+param s{1..NB_GROUPES, 1..NB_NUM*NB_COUL} default 0, integer, <= NB_MUL ; # Tableau avec les cartes de chaque groupe
 
 let nb_tiles := 3;
 repeat {
