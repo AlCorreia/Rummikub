@@ -22,12 +22,20 @@ repeat until carte_reserve = 0 {
 	printf "\n iteration %d \n", iter;
 	
 	solve;
-	
+	printf"carte_table: \n";
 	for{m in 1..NB_NUM} {
 		for{n in 1..NB_COUL} {
 			let carte_table[m,n] := carte_table[m,n] + y[m,n];
 			let carte_main[m,n] := carte_main[m,n] - y[m,n];
 			printf"%d ", carte_table[m,n];
+		}
+		printf"\n";
+	}
+	
+	printf"carte_main: \n";
+	for{m in 1..NB_NUM} {
+		for{n in 1..NB_COUL} {
+			printf"%d ", carte_main[m,n];
 		}
 		printf"\n";
 	}
