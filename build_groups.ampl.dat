@@ -1,7 +1,5 @@
 # Initialisation du tableau s
-param s{1..NB_GROUPES, 1..(NB_NUM*NB_COUL + NB_MUL)} default 0, integer, <= NB_BAR ; # Tableau avec les cartes de chaque groupe
-
-display (NB_NUM*NB_COUL + NB_MUL);
+param s{1..NB_GROUPES, 1..(NB_NUM*NB_COUL + NB_BAR)} default 0, integer, <= NB_MUL ; # Tableau avec les cartes de chaque groupe
 
 #Groupes de 3 cartes consecutives sans joker
 let nb_tiles := 3;
@@ -57,7 +55,7 @@ repeat until i = (NB_NUM + 1){
     let i := i + 1;
 };
 
-if NB_MUL >= 1 then {
+if NB_BAR >= 1 then {
 
 	let nb_tiles := 2;
 	repeat until nb_tiles = 5 {
@@ -132,7 +130,7 @@ if NB_MUL >= 1 then {
 	
 	let nb_tiles := 2;
 	let c := 0;
-	repeat until c = NB_MUL {
+	repeat until c = NB_BAR {
 		let i := 1; 
 		repeat until i = NB_NUM + 1 {
 			let k := 0; 
@@ -156,9 +154,9 @@ if NB_MUL >= 1 then {
 	    let c := c + 1;
 	}; #Boucle c
 
-}; #if NB_MUL >= 1
+}; #if NB_BAR >= 1
 
-if NB_MUL >= 2 then {
+if NB_BAR >= 2 then {
 
 	let nb_tiles := 1;
 	repeat until nb_tiles = 4 {
@@ -233,4 +231,4 @@ if NB_MUL >= 2 then {
 	    let count_colour := count_colour + 1;
 	}; # Boucle count_colour
 
-}; #if NB_MUL >= 2
+}; #if NB_BAR >= 2
