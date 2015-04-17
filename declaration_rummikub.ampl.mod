@@ -3,6 +3,7 @@ set numeros := {1..NB_NUM};
 param NB_COUL;
 set couleurs := {1..NB_COUL};
 param NB_MUL;
+param NB_BAR;
 param NB_GROUPES; # Nombre total de groupes possibles
 param carte_table{numeros, couleurs}; #ti
 param carte_main{numeros, couleurs}; #ri
@@ -20,5 +21,6 @@ param c integer;
 param i integer;
 param j integer;
 param k integer;
-param l integer; 
+param l integer;
 param l2 integer; 
+param dd integer; 
