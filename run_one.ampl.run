@@ -54,11 +54,11 @@ for {o in 1..NB_JOUEURS} {
 # ITERATIONS
 let iter := 1;
 repeat until carte_reserve <= 0 {
-	printf "\nIteration %d \n", iter;
 	
 	# On change de joueur
 	let j_tour := iter mod NB_JOUEURS; 
 	if j_tour = 0 then
+	printf"\nTOUR DU JOUEUR %d\n", j_tour;
 		let j_tour := NB_JOUEURS;
 	# On copie la main du joueur dans le param carte_main
 	for{m in 1..NB_NUM} {
