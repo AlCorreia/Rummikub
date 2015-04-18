@@ -1,4 +1,4 @@
-param NB_NUM := 13;
+param NB_NUM := 5;
 param NB_COUL := 4;
 param NB_MUL := 1; #nombre de jeux de cartes
 param NB_BAR := 1; #nombre de jokers
