@@ -1,6 +1,6 @@
 param NB_NUM := 5;
 param NB_COUL := 4;
-param NB_MUL := 0; #nombre de jokers
+param NB_MUL := 1; #nombre de jokers
 param NB_BAR := 1; #nombre de jeux de cartes
 param NB_GROUPES := 1173;
 param carte_table_joker := 0;

@@ -1,7 +1,7 @@
 param NB_NUM;
 set numeros := {1..NB_NUM};
 param NB_COUL;
-set couleurs := {1..NB_COUL};
+set couleurs := {0..NB_COUL};
 param NB_MUL; #Nombre de jeux de cartes
 param NB_BAR; #Nombre de jokers
 param NB_GROUPES; # Nombre total de groupes possibles

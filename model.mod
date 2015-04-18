@@ -1,7 +1,6 @@
 #model
 
 var y{m in 1..NB_NUM, n in 1..NB_COUL} <= NB_MUL, integer; # On a que un jeu de carte
-var joker
 var x{1..NB_GROUPES} binary; # Groupes qui apparaissent sur la table
 
 maximize obj:sum {m in 1..NB_NUM, n in 1..NB_COUL} y[m,n]*m;
