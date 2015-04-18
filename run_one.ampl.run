@@ -61,7 +61,8 @@ repeat until carte_reserve = 0 {
 	printf"NOMBRE DES CARTES A LA MAIN: %d \n",somme;
 	if somme = 0 then {
 		printf"JOUEUR a gagne! \n";
-		let carte_reserve := 0;
+		break;
+		break;
 	};
 	
 	commands alea.com.mod;
