@@ -13,7 +13,7 @@ data instance_rummikub.ampl.dat;
 model build_groups.ampl.dat;
 model model.mod;
 
-param somme {1..NB_JOUEURS};
+param somme;
 	
 let carte_reserve := NB_NUM*NB_COUL - sum {m in 0..NB_NUM, n in 1..NB_COUL} (carte_main[m,n] + carte_table[m,n]);
 
@@ -58,7 +58,7 @@ repeat until carte_reserve = 0 {
 	}
 	
 	let somme := carte_main[0,1] + sum {m in 1..NB_NUM, n in 1..NB_COUL} carte_main[ m, n];
-	if somme[j_tour] = 0 then {
+	if somme = 0 then {
 		printf"JOUEUR a gagne! \n";
 		let carte_reserve := 0;
 	};
