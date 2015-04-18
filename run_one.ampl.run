@@ -58,9 +58,9 @@ repeat until carte_reserve = 0 {
 	}
 	
 	let somme := carte_main[0,1] + sum {m in 1..NB_NUM, n in 1..NB_COUL} carte_main[ m, n];
-	printf"NOMBRE DES CARTES A LA MAIN: %d \n",somme;
+	printf"\nNOMBRE DES CARTES A LA MAIN: %d \n",somme;
 	if somme = 0 then {
-		printf"JOUEUR a gagne! \n";
+		printf"\nJOUEUR a gagne! \n";
 		break;
 		break;
 	};
