@@ -8,6 +8,7 @@ repeat {
 			let fin := 0;
 	}
 } until fin = 1;
-	
+	if i_alea = 0 && j_alea > 1 then
+			printf "\nOLHA O JOKER! %d %d \n";
 	printf "\nCarte piochee %d %d \n", i_alea, j_alea;
 	
