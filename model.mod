@@ -1,8 +1,9 @@
 #model
 
-var y{1..NB_NUM*NB_COUL} binary; # On a que un jeu de carte
-var x{1..NB_GROUPES} binary; # Groupes qui apparaissent sur la table
-maximize obj:sum {m in 1..NB_NUM*NB_COUL} y[m];
+var y{1..NB_NUM*NB_COUL} <= NB_MUL, integer; 
+var x{1..NB_GROUPES} binary; 
+
+maximize obj:sum {m in 1..NB_NUM*NB_COUL} y[m]*m;
 
 subject to 
 c1 {m in 1..NB_NUM, n in 1..NB_COUL} : 
