@@ -25,3 +25,21 @@ for{m in 1..NB_NUM} {
 }
 
 solve;
+
+printf "\nCONFIGURATION FINALE \n";
+printf"\nCarte_table: \n";
+for{m in 1..NB_NUM} {
+	for{n in 1..NB_COUL} {
+		let carte_table[m,n] := carte_table[m,n] + y[m,n];
+		let carte_main[m,n] := carte_main[m,n] - y[m,n];
+		printf"%d ", carte_table[m,n];
+	}
+	printf"\n";
+}
+printf"\nCarte_main: \n";
+for{m in 1..NB_NUM} {
+	for{n in 1..NB_COUL} {
+		printf"%d ", carte_main[m,n];
+	}
+	printf"\n";
+}
