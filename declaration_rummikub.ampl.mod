@@ -11,7 +11,7 @@ param NB_CARTES;
 
 param carte_table{numeros, couleurs} default 0; #ti
 param carte_main{numeros, couleurs} default 0; #ri
-param main{joueurs,numeros, couleurs} default 1;
+param main{joueurs,numeros, couleurs} default 0;
 param mont{numeros, couleurs} default NB_MUL;
 param carte_table_joker;
 param carte_main_joker;
