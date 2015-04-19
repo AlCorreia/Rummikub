@@ -236,28 +236,25 @@ if NB_BAR >= 2 then {
 			repeat until j = (NB_NUM - nb_tiles + 1) {
 				let i := 0;
 				repeat until i = nb_tiles - 1 {
-					let k := 2;
-					repeat until k = 4 {
 	                let dd := 2;
-	                	repeat until dd = 4{
-	                    	if (j mod (NB_NUM - nb_tiles) != 0 || k != 3) then {
-	                    		let l := 0;
-	                    		repeat until l = i + 1 {
-	                        	    let s[count, j + NB_NUM*count_colour + l] := 1;
-	                        	    let l := l + 1;
-	                        	}; # Boucle l
-	 							let l2 := 0;                    
-	                        	repeat until l2 = (nb_tiles - 1 - i) {
-	                         	   let s[count, j + NB_NUM*count_colour + dd + k + i] := 1;
-	                         	   let l2 := l2 + 1;
-	                        	}; # Boucle l2
-	                        	let s[count, 0] := 2;
-	                        	let count := count + 1;
-	                   		}; # if
-	                   		let dd := dd + 1;
-	                   	};
-	                    let k := k + 1;      	
-	                }; 
+	                repeat until dd = 4{
+	                    if (j mod (NB_NUM - nb_tiles) != 0 || dd != 3) then {
+	                    	let l := 0;
+	                    	repeat until l = i + 1 {
+	                        	let s[count, j + NB_NUM*count_colour + l] := 1;
+	                        	let l := l + 1;
+	                        }; # Boucle l
+	 						let l2 := 0;                    
+	                        repeat until l2 = (nb_tiles - 1 - i) {
+	                        	let s[count, j + NB_NUM*count_colour + dd + l2 + i] := 1;
+	                        	let l2 := l2 + 1;
+	                        }; # Boucle l2
+	                        
+	                        let s[count, 0] := 2;
+	                        let count := count + 1;
+	                   	}; # if
+	                    let dd := dd + 1;
+	                }; #Boucle dd
 	                let i := i + 1;
 	            }; #Boucle i
 	            let j := j + 1;
