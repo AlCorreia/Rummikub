@@ -7,7 +7,7 @@ param carte_table_joker := 0;
 param carte_main_joker := 0;
 
 param carte_table: 1 2 3 4 :=
-0 0 0 0 0
+0 1 0 0 0
 1 0 0 0 0
 2 0 0 0 0
 3 0 0 0 0

@@ -62,14 +62,15 @@ repeat until carte_reserve = 0 {
 	for{o in 1..NB_GROUPES}{
 		if s[o,0]*x[o] > 0 then {
 			let compteur := compteur + 1;
-			printf"\nPosition Joker %d: ", compteur;
+			printf"\nGroupe Joker %d: ", compteur;
 			for{m in 1..NB_NUM} {
 				for{n in 1..NB_COUL} {
 					if s[o,(n-1)*NB_NUM + m] > 0 then {
-					printf"%d %d \n", m, n;
+					printf"(%d, %d) ", m, n;
 					}
 				}
 			}
+			printf"\n";
 		}
 	}
 	
