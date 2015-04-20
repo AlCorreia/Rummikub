@@ -1,10 +1,16 @@
-param NB_NUM := 8;
+# Nombre de groupes por quelques cas:
+# Jeux de Cartes   sans joker   1 joker   2 jokers   5 jokers
+#       5               49        175        301         384
+#       13             185        679       1173        1448
+
+param NB_NUM := 13;
 param NB_COUL := 4;
-param NB_MUL := 5; #nombre de jeux de cartes
-param NB_BAR := 5; #nombre de jokers
-param NB_GROUPES := 783;
+param NB_MUL := 1; #nombre de jeux de cartes
 param carte_table_joker := 0;
 param carte_main_joker := 0;
+
+# IL FAUT TOUJOURS DEFINIR LE NOMNRE DE GROUPES
+param NB_GROUPES = 694;
 
 param carte_table: 1 2 3 4 :=
 0 0 0 0 0
@@ -15,7 +21,12 @@ param carte_table: 1 2 3 4 :=
 5 1 1 0 1
 6 0 0 0 0
 7 0 0 0 0
-8 0 0 0 0;
+8 0 0 0 0
+9 0 0 0 0
+10 0 0 0 0
+11 0 0 0 0
+12 0 0 0 0
+13 0 0 0 0;
 
 param carte_main: 1 2 3 4 :=
 0 1 0 0 0
@@ -26,21 +37,13 @@ param carte_main: 1 2 3 4 :=
 5 1 0 0 0
 6 0 0 1 0
 7 0 0 0 0
-8 1 0 1 0;
+8 1 0 1 0
+9 0 0 0 0
+10 0 0 0 0
+11 0 0 0 0
+12 0 0 0 0
+13 0 0 0 0;
 
-#parametres auxilieres
-param count := 1;
-param nb_tiles := 3;
-param num := 1;
-param count_num := 1;
-param count_colour := 0;
-param c := 1;
-param i := 1;
-param j := 1;
-param k := 1;
-param l := 1;
-param dd := 1;
-param l2 := 1;
 
 
 

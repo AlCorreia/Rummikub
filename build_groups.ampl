@@ -1,3 +1,34 @@
+#parametres auxilieres
+param count integer;
+param nb_tiles integer; #nombre de pieces en chaque groupe
+param num integer;
+param count_num integer;
+param count_colour integer;
+param c integer;
+param i integer;
+param j integer;
+param k integer;
+param l integer;
+param l2 integer; 
+param dd integer;
+param NB_BAR; #nombre de jokers
+
+#initialisation des parametres auxilieres
+let count := 1;
+let nb_tiles := 3;
+let num := 1;
+let count_num := 1;
+let count_colour := 0;
+let c := 1;
+let i := 1;
+let j := 1;
+let k := 1;
+let l := 1;
+let dd := 1;
+let l2 := 1;
+let NB_BAR := NB_MUL; 
+
+
 # Initialisation du tableau s
 param s{1..NB_GROUPES, 0..(NB_NUM*NB_COUL)} default 0, integer, <= NB_MUL ; # Tableau avec les cartes de chaque groupe
 
@@ -57,7 +88,7 @@ repeat until i = (NB_NUM + 1){
 
 if NB_BAR >= 1 then {
 
-	#Groupes de 3, 4, 5 cartes consecutives avec 1 joker sans décalage (12J, 123J, 1234J)
+	#Groupes de 3, 4, 5 cartes consecutives avec 1 joker sans decalage (12J, 123J, 1234J)
 	let nb_tiles := 2;
 	repeat until nb_tiles = 5 {
 		let count_colour := 0;
@@ -78,7 +109,7 @@ if NB_BAR >= 1 then {
 	    let nb_tiles := nb_tiles + 1;
 	};
 
-	#Groupes de 3, 4, 5 cartes consecutives avec 1 joker décalée de 1 carte (1J3, 1J34 12J4, 1J345 12J45, 123J5)
+	#Groupes de 3, 4, 5 cartes consecutives avec 1 joker decale de 1 carte (1J3, 1J34 12J4, 1J345 12J45, 123J5)
 	let nb_tiles := 2;
 	repeat until nb_tiles = 5 {
 		let count_colour := 0;
@@ -108,7 +139,7 @@ if NB_BAR >= 1 then {
 	    let nb_tiles := nb_tiles + 1;
 	}; #Boucle nb_tiles
 
-	#Groupes de 3, 4 cartes de couleurs differentes avec 1 joker sans décalage (11J, 111J)
+	#Groupes de 3, 4 cartes de couleurs differentes avec 1 joker sans decalage (11J, 111J)
 	let nb_tiles := 2;
 	repeat until nb_tiles = 4 {
 		let i := 1;
@@ -132,7 +163,7 @@ if NB_BAR >= 1 then {
 	    let nb_tiles := nb_tiles + 1;
 	}; #Boucle nb_tiles
 	
-	#Groupes de 3 cartes de couleurs differentes avec 1 joker dégalée de 1 carte (1J1)	
+	#Groupes de 3 cartes de couleurs differentes avec 1 joker decale de 1 carte (1J1)	
 	let nb_tiles := 2;
 	let i := 1; 
 	repeat until i = NB_NUM + 1 {
@@ -159,7 +190,7 @@ if NB_BAR >= 1 then {
 
 if NB_BAR >= 2 then {
 	
-	#Groupes de 4 cartes de couleurs differentes avec 2 jokers dégalée de 1 carte (1J1J)
+	#Groupes de 4 cartes de couleurs differentes avec 2 jokers decale de 1 carte (1J1J)
 	let nb_tiles := 2;
 	let i := 1; 
 	repeat until i = NB_NUM + 1 {
@@ -182,7 +213,7 @@ if NB_BAR >= 2 then {
 	    let i := i + 1; 
 	}; #Boucle i
 	
-	#Groupes de 4 cartes de couleurs differentes avec 2 jokers sans dégalage (11JJ)
+	#Groupes de 4 cartes de couleurs differentes avec 2 jokers sans decalage (11JJ)
 	let nb_tiles := 2;
 	let i := 1; 
 	repeat until i = NB_NUM + 1 {
@@ -205,8 +236,8 @@ if NB_BAR >= 2 then {
 	    let i := i + 1; 
 	}; #Boucle i
 	
-	#Groupes de 3 cartes consecutives/mêmes couleurs avec 2 jokers décalage (1JJ)
-	#Groupes de 4, 5 cartes consecutives avec 2 jokers sans dégalage (11JJ, 111JJ)
+	#Groupes de 3 cartes consecutives/memes couleurs avec 2 jokers decalage (1JJ)
+	#Groupes de 4, 5 cartes consecutives avec 2 jokers sans decalage (11JJ, 111JJ)
 	let nb_tiles := 1;
 	repeat until nb_tiles = 4 {
 		let count_colour := 0;
@@ -227,7 +258,7 @@ if NB_BAR >= 2 then {
 	    let nb_tiles := nb_tiles + 1;
 	}; #Boucle nb_tiles
 	
-	#Groupes de 4, 5 cartes consecutives avec 2 jokers dégalée de 1, 2 cartes (1J1J 1JJ1, 1J11J 1JJ11 11J1J 11JJ1)
+	#Groupes de 4, 5 cartes consecutives avec 2 jokers decalge de 1, 2 cartes (1J1J 1JJ1, 1J11J 1JJ11 11J1J 11JJ1)
 	let nb_tiles := 2;
 	repeat until nb_tiles = 4 {
 		let count_colour := 0;
@@ -264,7 +295,7 @@ if NB_BAR >= 2 then {
 	    let nb_tiles := nb_tiles + 1;
 	}; #Boucle nb_tiles
 	
-	#Groupes de 5 cartes consecutives avec 2 jokers dégalée de 1 a 1 cartes (1J1J1)
+	#Groupes de 5 cartes consecutives avec 2 jokers decalage de 1 a 1 cartes (1J1J1)
 	let nb_tiles := 3;
 	let count_colour := 0;
 	repeat until count_colour = 4 {
@@ -284,12 +315,12 @@ if NB_BAR >= 2 then {
 
 if NB_BAR >= 3 then {
 
-	#Groupes de 3 cartes consecutives/mêmes couleurs avec 3 jokers (JJJ)
+	#Groupes de 3 cartes consecutives/memes couleurs avec 3 jokers (JJJ)
 	let s[count, 0] := 3;
 	let count := count + 1;
 	
-	#Groupes de 4 cartes consecutives/mêmes couleurs avec 3 jokers (1JJJ)
-	#Groupes de 5 cartes consecutives avec 3 jokers sans décalage (11JJJ)
+	#Groupes de 4 cartes consecutives/memes couleurs avec 3 jokers (1JJJ)
+	#Groupes de 5 cartes consecutives avec 3 jokers sans decalage (11JJJ)
 	let nb_tiles := 1;
 	repeat until nb_tiles = 3 {
 		let count_colour := 0;
@@ -311,7 +342,7 @@ if NB_BAR >= 3 then {
 	let nb_tiles := nb_tiles + 1;
 	}; #Boucle nb_tiles
 	
-	#Groupes de 5 cartes consecutives avec 3 jokers décalge de 1, 2, 3 (1J1JJ 1JJ1J 1JJJ1)
+	#Groupes de 5 cartes consecutives avec 3 jokers decalge de 1, 2, 3 (1J1JJ 1JJ1J 1JJJ1)
 	let nb_tiles := 2;
 	let l := 1;
 	repeat until l = 4 {
@@ -335,11 +366,11 @@ if NB_BAR >= 3 then {
 
 if NB_BAR >= 4 then {
 	
-	#Groupes de 3 cartes consecutives/mêmes couleurs avec 4 jokers (JJJJ)
+	#Groupes de 3 cartes consecutives/memes couleurs avec 4 jokers (JJJJ)
 	let s[count, 0] := 4;
 	let count := count + 1;
 	
-	#Groupes de 5 cartes consecutives/mêmes couleurs avec 4 jokers (1JJJJ)
+	#Groupes de 5 cartes consecutives/memes couleurs avec 4 jokers (1JJJJ)
 	let nb_tiles := 1;
 	let count_colour := 0;
 	repeat until count_colour = 4 {
@@ -362,7 +393,7 @@ if NB_BAR >= 4 then {
 
 if NB_BAR >= 5 then {
 	
-	#Groupes de 5 cartes consecutives/mêmes couleurs avec 5 jokers (JJJJJ)
+	#Groupes de 5 cartes consecutives/memes couleurs avec 5 jokers (JJJJJ)
 	let s[count, 0] := 5;
 	let count := count + 1;
 
