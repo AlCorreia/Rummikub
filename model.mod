@@ -1,6 +1,6 @@
 #model
 
-var y{1..NB_NUM, 1..NB_COUL} <= NB_MUL, integer; 
+var y{m in 1..NB_NUM, n in 1..NB_COUL} <= NB_MUL, integer; 
 var x{1..NB_GROUPES} binary; 
 
 maximize obj:sum {m in 1..NB_NUM, n in 1..NB_COUL} y[m,n]*m;
