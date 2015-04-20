@@ -21,23 +21,23 @@ let carte_reserve := NB_BAR + NB_NUM*NB_COUL*NB_MUL - sum {m in 0..NB_NUM, n in 
 printf"\nCarte_reserve: %d \n", carte_reserve;
 
 printf "\nCONFIGURATION INITIALE \n";
-printf"\nCarte_table: \n";
+printf"\nCarte_table:";
 for{m in 0..NB_NUM} {
+	printf"\n%d: ",m;
 	for{n in 1..NB_COUL} {
 		if m = 0 && n > 1 then 
 				printf"J ";
 		else printf"%d ", carte_table[m,n];
 	}
-	printf"\n";
 }
-printf"\nCarte_main: \n";
+printf"\nCarte_main:";
 for{m in 0..NB_NUM} {
+	printf"\n%d: ",m;
 	for{n in 1..NB_COUL} {
 		if m = 0 && n > 1 then 
 				printf"J ";
 		else printf"%d ", carte_main[m,n];
 	}
-	printf"\n";
 }
 
 let iter := 0;
@@ -46,8 +46,9 @@ repeat until carte_reserve = 0 {
 	
 	solve;
 	
-	printf"\nCarte_table: \n";
+	printf"\nCarte_table:";
 	for{m in 0..NB_NUM} {
+		printf"\n%d: ",m;
 		for{n in 1..NB_COUL} {
 			let carte_table[m,n] := carte_table[m,n] + y[m,n];
 			let carte_main[m,n] := carte_main[m,n] - y[m,n];
@@ -55,7 +56,6 @@ repeat until carte_reserve = 0 {
 				printf"J ";
 			else printf"%d ", carte_table[m,n];
 		}
-		printf"\n";
 	}
 	
 	let compteur := 0;
@@ -88,21 +88,22 @@ repeat until carte_reserve = 0 {
 	let carte_reserve := carte_reserve - 1;
 	let iter := iter + 1;
 	
-	printf"\nCarte_main: \n";
+	printf"\nCarte_main:";
 	for{m in 0..NB_NUM} {
+		printf"\n%d: ",m;
 		for{n in 1..NB_COUL} {
 			if m = 0 && n > 1 then  
 				printf"J ";
 			else printf"%d ", carte_main[m,n];
 		}
-		printf"\n";
 	}
 }
 
 solve;
 printf "\nCONFIGURATION FINALE \n";
-printf"\nCarte_table: \n";
+printf"\nCarte_table:";
 for{m in 0..NB_NUM} {
+	printf"\n%d: ",m;
 	for{n in 1..NB_COUL} {
 		let carte_table[m,n] := carte_table[m,n] + y[m,n];
 		let carte_main[m,n] := carte_main[m,n] - y[m,n];
@@ -110,14 +111,13 @@ for{m in 0..NB_NUM} {
 				printf"J ";
 		else printf"%d ", carte_table[m,n];
 	}
-	printf"\n";
 }
-printf"\nCarte_main: \n";
+printf"\nCarte_main:";
 for{m in 0..NB_NUM} {
+	printf"\n%d: ",m;
 	for{n in 1..NB_COUL} {
 		if m = 0 && n > 1 then 
 				printf"J ";
 		else printf"%d ", carte_main[m,n];
 	}
-	printf"\n";
 }
