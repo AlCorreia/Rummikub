@@ -9,7 +9,7 @@ param fin; #Jalon
 param carte_reserve integer; # Nombre des cartes a la pioche
 param compteur; 
 
-model declaration_rummikub.ampl;
+model declaration_rummikub_joker.ampl;
 
 param datfile symbolic;
 if $datfile != "" then {
@@ -17,7 +17,7 @@ if $datfile != "" then {
     let datfile := $datfile;
 } else {
     # On n a pas passe de parametre $datfile
-    let datfile := "instance_rummikub.ampl.dat";
+    let datfile := "instance_rummikub_joker.ampl.dat";
 }
 display datfile;
 data (datfile);
