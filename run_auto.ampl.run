@@ -22,7 +22,7 @@ if $datfile != "" then {
 display datfile;
 data (datfile);
 
-model build_groups.ampl;
+model build_groups_joker.ampl;
 model model_joker.ampl.mod;
 
 param somme;
