@@ -1,5 +1,5 @@
 param NB_NUM;
-set numeros := {0..NB_NUM};
+set numeros := {1..NB_NUM};
 param NB_COUL;
 set couleurs := {1..NB_COUL};
 

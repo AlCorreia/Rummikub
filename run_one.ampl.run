@@ -18,26 +18,22 @@ display datfile;
 data (datfile);
 
 model build_groups.ampl;
-model model_joker.ampl.mod;
+model model.ampl.mod;
 
 # Impression de la configuration initiale
 printf "\nCONFIGURATION INITIALE \n";
 printf"\nCarte_table:";
-for{m in 0..NB_NUM} {
+for{m in 1..NB_NUM} {
 	printf"\n%d: ",m;
 	for{n in 1..NB_COUL} {
-		if m = 0 && n > 1 then 
-				printf"J ";
-		else printf"%d ", carte_table[m,n];
+		printf"%d ", carte_table[m,n];
 	}
 }
 printf"\nCarte_main:";
-for{m in 0..NB_NUM} {
+for{m in 1..NB_NUM} {
 	printf"\n%d: ",m;
 	for{n in 1..NB_COUL} {
-		if m = 0 && n > 1 then 
-				printf"J ";
-		else printf"%d ", carte_main[m,n];
+		printf"%d ", carte_main[m,n];
 	}
 }
 # ITERATIONS
@@ -47,14 +43,12 @@ for{m in 0..NB_NUM} {
 	# Impression et mise a jour de carte_table apres solve
 	printf "\nCONFIGURATION FINALE \n";
 	printf"\nCarte_table:";
-	for{m in 0..NB_NUM} {
+	for{m in 1..NB_NUM} {
 		printf"\n%d: ",m;
 		for{n in 1..NB_COUL} {
 			let carte_table[m,n] := carte_table[m,n] + y[m,n];
 			let carte_main[m,n] := carte_main[m,n] - y[m,n];
-			if m = 0 && n > 1 then 
-				printf"J ";
-			else printf"%d ", carte_table[m,n];
+			printf"%d ", carte_table[m,n];
 		}
 	}
 	
@@ -77,12 +71,10 @@ for{m in 0..NB_NUM} {
 	
 	# Impression de carte_main
 	printf"\nCarte_main:";
-	for{m in 0..NB_NUM} {
+	for{m in 1..NB_NUM} {
 		printf"\n%d: ",m;
 		for{n in 1..NB_COUL} {
-			if m = 0 && n > 1 then  
-				printf"J ";
-			else printf"%d ", carte_main[m,n];
+			printf"%d ", carte_main[m,n];
 		}
 	}
 
