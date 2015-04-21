@@ -126,7 +126,7 @@ for{m in 0..NB_NUM} {
 		else printf"%d ", carte_table[m,n];
 	}
 }
-printf"\nCarte_main:";
+printf"\n\nCarte_main:";
 for{m in 0..NB_NUM} {
 	printf"\n%d: ",m;
 	for{n in 1..NB_COUL} {
