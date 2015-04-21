@@ -121,8 +121,6 @@ printf"\nCarte_table:";
 for{m in 0..NB_NUM} {
 	printf"\n%d: ",m;
 	for{n in 1..NB_COUL} {
-		let carte_table[m,n] := carte_table[m,n] + y[m,n];
-		let carte_main[m,n] := carte_main[m,n] - y[m,n];
 		if m = 0 && n > 1 then 
 				printf"J ";
 		else printf"%d ", carte_table[m,n];
