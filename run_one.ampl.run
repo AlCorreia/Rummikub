@@ -4,7 +4,7 @@ option solver cplexamp;
 
 param compteur; 
 
-model declaration_rummikub.ampl;
+model declaration_rummikub_joker.ampl;
 
 param datfile symbolic;
 if $datfile != "" then {
@@ -12,12 +12,12 @@ if $datfile != "" then {
     let datfile := $datfile;
 } else {
     # On n a pas passe de parametre $datfile
-    let datfile := "instance_rummikub.ampl.dat";
+    let datfile := "instance_rummikub_joker.ampl.dat";
 }
 display datfile;
 data (datfile);
 
-model build_groups.ampl;
+model build_groups_joker.ampl;
 model model_joker.ampl.mod;
 
 # Impression de la configuration initiale
