@@ -2,11 +2,6 @@ reset;
 
 option solver cplexamp;
 
-param iter; # Nombre d'iterations
-param i_alea; # Numero aleatoire
-param j_alea; # Numero aleatoire
-param fin; #Jalon
-param carte_reserve integer; # Nombre des cartes a la pioche
 param compteur; 
 
 model declaration_rummikub.ampl;
@@ -24,12 +19,6 @@ data (datfile);
 
 model build_groups.ampl;
 model model_joker.ampl.mod;
-
-param somme;
-	
-let carte_reserve := NB_BAR + NB_NUM*NB_COUL*NB_MUL - sum {m in 0..NB_NUM, n in 1..NB_COUL} (carte_main[m,n] + carte_table[m,n]);
-
-printf"\nCarte_reserve: %d \n", carte_reserve;
 
 # Impression de la configuration initiale
 printf "\nCONFIGURATION INITIALE \n";
@@ -52,13 +41,11 @@ for{m in 0..NB_NUM} {
 	}
 }
 # ITERATIONS
-let iter := 0;
-repeat until carte_reserve = 0 {
-	printf "\nIteration %d \n", iter;
 	
 	solve;
 	
 	# Impression et mise a jour de carte_table apres solve
+	printf "\nCONFIGURATION FINALE \n";
 	printf"\nCarte_table:";
 	for{m in 0..NB_NUM} {
 		printf"\n%d: ",m;
@@ -88,21 +75,6 @@ repeat until carte_reserve = 0 {
 		}
 	}
 	
-	# Calcule de nombre des cartes a la main
-	let somme := carte_main[0,1] + sum {m in 1..NB_NUM, n in 1..NB_COUL} carte_main[ m, n];
-	printf"\nNOMBRE DES CARTES A LA MAIN: %d \n",somme;
-	if somme = 0 then {
-		printf"\nJOUEUR a gagne! \n";
-		break;
-		break;
-	};
-	
-	commands alea.com.mod; # On pioche une carte a chaque tour
-	let carte_main[i_alea, j_alea] := 1; # Mise a jour de carte_main
-	printf"\nCarte_reserve: %d \n", carte_reserve;
-	let carte_reserve := carte_reserve - 1; # Mise a jour de carte_reserve
-	let iter := iter + 1;
-	
 	# Impression de carte_main
 	printf"\nCarte_main:";
 	for{m in 0..NB_NUM} {
@@ -113,25 +85,5 @@ repeat until carte_reserve = 0 {
 			else printf"%d ", carte_main[m,n];
 		}
 	}
-}
 
-# Impression de la configuration finale
-printf "\nCONFIGURATION FINALE \n";
-printf"\nCarte_table:";
-for{m in 0..NB_NUM} {
-	printf"\n%d: ",m;
-	for{n in 1..NB_COUL} {
-		if m = 0 && n > 1 then 
-				printf"J ";
-		else printf"%d ", carte_table[m,n];
-	}
-}
-printf"\n\nCarte_main:";
-for{m in 0..NB_NUM} {
-	printf"\n%d: ",m;
-	for{n in 1..NB_COUL} {
-		if m = 0 && n > 1 then 
-				printf"J ";
-		else printf"%d ", carte_main[m,n];
-	}
-}
+
